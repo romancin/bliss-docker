@@ -1,4 +1,4 @@
-# rclonebrowser-docker
+# bliss-docker
 
 A repository for creating a docker container including bliss (https://www.blisshq.com)
 
