@@ -1,0 +1,16 @@
+version: '2'
+services:
+  bliss_service:
+    image: romancin/bliss:latest
+    container_name: bliss
+    networks:
+      - traefik
+    volumes:
+      - /share/Container/bliss:/config
+    ports:
+      - "3220:3220"
+      - "3221:3221"
+networks:
+  traefik:
+    external:
+      name: traefik_network
