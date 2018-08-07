@@ -18,6 +18,9 @@ Instructions:
 - Map any local port to 3220 for web access
 - Map any local port to 3221 (used for bliss internal web server)
 - Map a local volume to /config (Stores configuration data)
+- Map a local volume to /music (This is the directory wher you should put your music for bliss to scan)
+
+NOTE: In order to migrate from the old container, you need to enter the local directory you are mapping to /config, create a ".bliss" directory on it and move all files and directories to this directory. This container fixes persitent data. With the older container it didn't work.
 
 Sample run command:
 
