@@ -2,7 +2,7 @@ FROM lsiobase/alpine:3.8
 
 ENV VMARGS -Dbliss_working_directory=/config
 
-VOLUME /config
+VOLUME /config /music
 
 EXPOSE 3220 3221
 
