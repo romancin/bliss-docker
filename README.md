@@ -27,6 +27,7 @@ Sample run command:
 ```bash
 docker run -d --name=bliss \
 -v /share/Container/bliss:/config \
+-v /share/MyMusic:/music \
 -e PGID=0 -e PUID=0 \
 -e TZ=Europe/Madrid \
 -p 3220:3220 \
