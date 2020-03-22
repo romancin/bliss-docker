@@ -1,6 +1,11 @@
 # Script to restart bliss after an update
 # Only needed for the Docker build, to stop the container exiting after an update
 #
+if [ ! -d /config/.java ] || [ ! -L /root/.java ]
+then
+  mkdir /config/.java
+  ln -s /config/.java /root/.java
+fi
 while [ true ]
 do
     sh /bliss/bin/bliss.sh
