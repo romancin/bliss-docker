@@ -2,9 +2,11 @@
 
 A repository for creating a docker container including bliss (https://www.blisshq.com)
 
-[![](https://images.microbadger.com/badges/version/romancin/bliss.svg)](https://microbadger.com/images/romancin/bliss "Docker image version")
-[![](https://images.microbadger.com/badges/image/romancin/bliss.svg)](https://microbadger.com/images/romancin/bliss "Docker image size")
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X2CT2SWQCP74U)
+![docker pulls](https://img.shields.io/docker/pulls/romancin/bliss.svg) ![docker stars](https://img.shields.io/docker/stars/romancin/bliss.svg) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X2CT2SWQCP74U)
+
+Latest versions:
+
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/romancin/bliss) ![docker size](https://img.shields.io/docker/image-size/romancin/bliss) 
 
 You can invite me a beer if you want ;) 
 
