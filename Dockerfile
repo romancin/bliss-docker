@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.13
+FROM lsiobase/alpine:3.14
 
 ENV VMARGS -Dbliss_working_directory=/config
 
