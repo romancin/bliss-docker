@@ -1,0 +1,52 @@
+version: 2.1
+executors:
+  executor-docker:
+    environment:
+      ORG_NAME: jonbackhaus
+      IMAGE_NAME: bliss
+    docker:
+      - image: cimg/base:2020.01
+
+
+jobs:
+  job-build-image:
+    executor: executor-docker
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          name: build image
+          command: |
+            echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            IMAGE_URI=$ORG_NAME/$IMAGE_NAME; echo "IMAGE_URI=$IMAGE_URI"
+            docker build -t $IMAGE_URI -f Dockerfile .
+            COMMIT_SLUG=${CIRCLE_SHA1:0:7}; echo "COMMIT_SLUG=$COMMIT_SLUG"
+            docker tag $IMAGE_URI $IMAGE_URI:latest
+            docker tag $IMAGE_URI $IMAGE_URI:$CIRCLE_BRANCH
+            docker tag $IMAGE_URI $IMAGE_URI:$CIRCLE_BRANCH-$COMMIT_SLUG
+            docker push $IMAGE_URI:latest
+            docker push $IMAGE_URI:$CIRCLE_BRANCH
+            docker push $IMAGE_URI:$CIRCLE_BRANCH-$COMMIT_SLUG
+
+
+workflows:
+  version: 2
+  workflow-commit:
+    jobs:
+      - job-build-image:
+          context: default
+          filters: 
+            branches:
+              only: main
+
+  workflow-nightly:
+    jobs:
+      - job-build-image:
+          context: default
+    triggers:
+      - schedule:
+          cron: "0 3 * * *"
+          filters:
+            branches:
+              only: main
